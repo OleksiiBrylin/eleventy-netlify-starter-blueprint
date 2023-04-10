@@ -1,0 +1,50 @@
+.btn-animate:link,
+.btn-animate:visited {
+    position: relative;
+}
+
+.btn-animate::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+    background-color: #fff;
+}
+
+.btn-animate.primary::after {
+    background-color: #00a8a5;
+}
+
+.btn-animate:hover::after {
+    transform: scaleX(1.3) scaleY(1.5);
+    opacity: 0;
+}
+
+.btn-animate {
+    transition: transform .2s, opacity .2s;
+    animation-fill-mode: backwards;
+    opacity: 1;
+    position: relative;
+}
+
+.btn-animate:hover {
+    opacity: 1;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

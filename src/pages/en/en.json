@@ -1,0 +1,6 @@
+{
+    "permalink": "/{{ page.fileSlug if page.fileSlug != 'en' }}/index.html",
+    "lang": "en",
+    "dir": "ltr",
+    "locale": "en"
+}

@@ -1,0 +1,15 @@
+<body class="{{ body_class }}">
+{% if navigation %}
+{% include "sections/nav.html" %}
+{% endif %}
+
+{% if sections %}
+    {% for section in sections %}
+        {% include "sections/" + section.type + ".html" ignore missing %}
+    {% endfor %}
+{% endif %}
+
+{% if navigation %}
+{% include "partials/footer.html" %}
+{% endif %}
+</body>

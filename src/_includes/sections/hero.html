@@ -1,0 +1,9 @@
+<section class="hero">
+    <div class="container">
+    <div class="bard">{{ section.text | markdown | safe }}</div>
+        <div class="hero__actions">
+            <a href="{{ section.cta_link | locale_url }}" class="btn primary btn-animate">{{ section.cta_label }}</a>
+            <a href="{{ section.cta_link_2 | locale_url }}" class="btn btn-animate">{{ section.cta_label_2 }}</a>
+        </div>
+    </div>
+</section>

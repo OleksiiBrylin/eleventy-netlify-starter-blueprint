@@ -1,0 +1,21 @@
+<section class="features-list" id="{{ section.id }}">
+    <div class="container">
+        <div class="bard features-list__bard hr-top">
+            {{ section.text | markdown | safe }}
+        </div>
+
+        <div class="features-list__wrap">
+            {% for item in section.list %}
+            <div class="features-list__item">
+                <div class="icon-box">
+                    <img class="svg-icon" src="{{ item.icon }}" alt="" />
+                </div>
+                <div class="bard">
+                    {{ item.text | markdown | safe }}
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</section>

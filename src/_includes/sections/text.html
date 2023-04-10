@@ -1,0 +1,7 @@
+{% if section.text %}
+<section class="content {{ 'mt-5' if section.top_margin }}">
+    <div class="container">
+        {{ section.text | markdown | safe }}
+    </div>
+</section>
+{% endif %}

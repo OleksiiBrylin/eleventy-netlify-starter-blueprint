@@ -1,0 +1,12 @@
+<section class="news">
+    <div class="container">
+        <ul>
+            {% set postslist = collections.news %}
+            {% for post in postslist | langFilter(page.lang) | reverse | limitTo(section.limit) %}
+                <li>
+                    <a href="{{ post.url | locale_url }}">{{ post.data.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>

@@ -1,0 +1,173 @@
+backend:
+  # Use netlify identity as backend
+  name: git-gateway
+  branch: master
+  ### enable below lines for github integration ###
+  # name: github
+  # repo: surjithctly/neat-starter
+media_folder: "src/static/img"
+public_folder: "/static/img"
+site_url: https://example.com
+locale: 'en'
+search: true
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "_"
+
+# media_library:
+#   name: cloudinary
+#   config:
+#     cloud_name: ""
+#     api_key: ""
+
+i18n:
+  structure: multiple_folders
+  locales: [en, uk]
+  default_locale: en
+
+# Please run "npx netlify-cms-proxy-server" for local backend
+local_backend: true
+# publish_mode: editorial_workflow
+collections:
+  - label: "News"
+    name: "news"
+    folder: "src/news"
+    preview_path: "news/{{slug}}"
+    create: true
+    view_groups:
+      - label:  Sort by Year
+        field: date
+        pattern: \d{4}
+    sortable_fields: ['date', 'title']
+    summary: "[{{year}}.{{month}}.{{day}}] {{title}}"
+    editor:
+      preview: true
+    i18n: true
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Preview", name: "image", widget: "image", required: false, i18n: duplicate }
+      - { label: "Description", name: "description", widget: "string", i18n: true }
+      - { label: "Author", name: "author", widget: "string", i18n: true }
+      - { label: "Date", name: "date", widget: "datetime", i18n: duplicate }
+      - { label: "Text", name: "body", widget: "markdown", i18n: true }
+  - label: "Pages"
+    name: "pages"
+    folder: "src/pages"
+    preview_path: "{{slug}}"
+    create: true
+    sortable_fields: ['commit_date', 'title']
+    summary: "{{title}}"
+    editor:
+      preview: true
+    i18n: true
+    fields:
+      - { label: "Template", name: "layout", widget: "hidden", default: "default", i18n: duplicate }
+      - { label: "Body class", name: "body_class", widget: "hidden", default: "", i18n: duplicate }
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Description", name: "description", widget: "string", required: false, i18n: true }
+      - label: "Sections"
+        name: "sections"
+        widget: "list"
+        i18n: true
+        types:
+          - label: 'News'
+            name: 'news'
+            widget: 'object'
+            fields:
+              - { label: 'Limit', name: 'limit', widget: 'number', default: 3 }
+          - label: 'Hero'
+            name: 'hero'
+            widget: 'object'
+            fields:
+              - { label: 'Text', name: 'text', widget: 'markdown' }
+              - { label: "CTA Label", name: cta_label, widget: string }
+              - { label: "CTA Link", name: cta_link, widget: string }
+              - { label: "CTA Label (second)", name: cta_label_2, widget: string }
+              - { label: "CTA Link (second)", name: cta_link_2, widget: string }
+          - label: 'Items list'
+            name: 'items-list'
+            widget: 'object'
+            fields:
+              - { label: 'Text', name: 'text', widget: 'markdown' }
+              - label: "Items List"
+                name: "items_list"
+                widget: "list"
+                fields:
+                  - { label: Icons, name: icon, widget: image }
+                  - { label: Text, name: text, widget: markdown }
+                  - { label: "CTA Label", name: cta_label, widget: string }
+                  - { label: "CTA Link", name: cta_link, widget: string }
+                  - { label: "Background Image", name: background, widget: image }
+          - label: 'Sign up Form'
+            name: 'sign-up-form'
+            widget: 'object'
+            fields:
+              - { label: 'Text', name: 'text', widget: 'markdown' }
+              - label: "Brand List"
+                name: "brand_list"
+                widget: "list"
+                fields:
+                  - { label: Icons, name: icon, widget: image }
+                  - { label: Text, name: text, widget: markdown }
+          - label: 'Features List'
+            name: 'features-list'
+            widget: 'object'
+            fields:
+              - { label: 'Text', name: 'text', widget: 'markdown' }
+              - { label: "Placeholder", name: placeholder, widget: string }
+              - { label: "CTA Label", name: cta_label, widget: string }
+              - { label: "Privacy note", name: privacy_note, widget: markdown }
+          - label: 'Text'
+            name: 'text'
+            widget: 'object'
+            fields:
+              - { label: 'Content', name: 'text', widget: 'markdown' }
+  - label: "Settings"
+    name: "settings"
+    editor:
+      preview: true
+    i18n:
+      structure: single_file
+    files:
+      - label: "Menu"
+        name: "navigation"
+        file: "src/_data/navigation.yaml"
+        i18n: true
+        fields:
+          - label: Main Menu
+            label_singular: Add Item
+            name: items
+            widget: list
+            collapsed: true
+            summary: '{{url}} - {{text}}'
+            i18n: true
+            fields:
+              - { label: Title, name: text, widget: string, i18n: true }
+              - { label: URL, name: url, widget: string, i18n: duplicate }
+              - { label: Primary, name: primary, widget: boolean }
+          - label: Footer menu
+            label_singular: Add Item
+            name: footer_items
+            widget: list
+            collapsed: true
+            summary: '{{url}} - {{text}}'
+            i18n: true
+            fields:
+              - { label: Title, name: text, widget: string, i18n: true }
+              - { label: URL, name: url, widget: string, i18n: duplicate }
+      - label: "Site General Settings"
+        name: "settings"
+        file: "src/_data/settings.yaml"
+        i18n: true
+        fields:
+          - { label: "Site title", name: name, widget: string, i18n: true }
+          - { label: Author, name: author, widget: string, i18n: true }
+          - { label: URL, name: url, widget: string, i18n: duplicate }
+          - { label: Robots, name: robots, widget: string, i18n: duplicate }
+          - { label: Image, name: image, widget: image, i18n: duplicate }
+          - { label: 'Copyright in footer', name: footer_copyright, widget: markdown, i18n: true }
+          - { label: Twitter, name: social_twitter, widget: string, required: false }
+          - { label: Instagram, name: social_instagram, widget: string, required: false }
+          - { label: Medium, name: social_medium, widget: string, required: false }

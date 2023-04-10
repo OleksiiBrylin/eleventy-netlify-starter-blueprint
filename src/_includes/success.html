@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+    <head>
+        {% include "./sections/head.html" %}
+    </head>
+<body>
+    <div class="success">
+        <div class="success__wrap">
+            <div class="bard">
+                {{ content | markdown | safe }}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

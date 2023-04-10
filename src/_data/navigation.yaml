@@ -1,0 +1,28 @@
+uk:
+  items:
+    - text: Новини
+      url: /news
+    - text: Контакти
+      url: /contacts
+      primary: true
+  footer_items:
+    - text: Головна
+      url: /
+    - text: Новини
+      url: /news
+    - text: Контакти
+      url: /contacts
+en:
+  items:
+    - text: News
+      url: /news
+    - text: Contacts
+      url: /contacts
+      primary: true
+  footer_items:
+    - text: Home
+      url: /
+    - text: News
+      url: /news
+    - text: Contacts
+      url: /contacts

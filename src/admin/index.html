@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Manager</title>
+</head>
+
+<body>
+    <!-- Include the script that builds the page and powers Netlify CMS -->
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+
+    {% set js %}
+    if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', user => {
+            if (!user) {
+            window.netlifyIdentity.on('login', () => {
+                document.location.href = '/admin/';
+            });
+            }
+        });
+        window.netlifyIdentity.on('logout', () => {
+            document.location.href = '/';
+        });
+    }
+
+    import Navigation from "./src/admin/preview-templates/navigation.js";
+    import News from "./src/admin/preview-templates/news.js";
+    import Pages from "./src/admin/preview-templates/pages.js";
+
+    // Uncomment if you use cloudinary media_library
+    // import cloudinary from "netlify-cms-media-library-cloudinary";
+
+    // How to set the CMS locale - https://decapcms.org/docs/configuration-options/#locale
+
+    CMS.registerPreviewTemplate("navigation", Navigation);
+    CMS.registerPreviewTemplate("news", News);
+    CMS.registerPreviewTemplate("pages", Pages);
+    CMS.registerPreviewStyle("/static/css/site.css");
+
+    CMS.init();
+    
+    {% endset %}
+    <script>{{ js | jsbundle | safe }}</script>
+
+    <!-- Netlify Identity Widget -->
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</body>
+
+</html>

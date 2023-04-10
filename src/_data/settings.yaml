@@ -1,0 +1,20 @@
+en:
+  social_instagram: "#"
+  social_twitter: "#"
+  footer_copyright: "2023"
+  social_medium: "#"
+  robots: noindex, nofollow
+  author: OleksiiBrylin
+  name: Eleventy Netlify Starter Blueprint
+  url: https://example.com
+  image: /static/img/android-chrome-96x96.png
+uk:
+  social_instagram: ""
+  social_twitter: ""
+  footer_copyright: "2023"
+  social_medium: ""
+  robots: noindex, nofollow
+  author: OleksiiBrylin
+  name: Eleventy Netlify Starter Blueprint
+  url: https://example.com
+  image: /static/img/android-chrome-96x96.png

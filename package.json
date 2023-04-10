@@ -1,0 +1,47 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npm-run-all --parallel eleventy browsersync",
+    "eleventy": "eleventy --watch",
+    "debug": "set DEBUG=* & eleventy",
+    "build": "cross-env NODE_ENV=production eleventy",
+    "browsersync": "browser-sync start --server _site --files _site --port 8080 --no-notify --no-open"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0",
+    "alpinejs": "^3.7.1",
+    "browser-sync": "^2.27.7",
+    "cross-env": "^7.0.3",
+    "cssnano": "^5.0.15",
+    "esbuild": "^0.17.12",
+    "html-minifier": "^4.0.0",
+    "js-yaml": "^4.1.0",
+    "luxon": "^2.3.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^9.1.0",
+    "postcss-import": "^15.1.0",
+    "postcss-minify": "^1.1.0",
+    "prismjs": "^1.26.0"
+  },
+  "dependencies": {
+    "accordion": "^3.0.2",
+    "autoprefixer": "^10.4.2",
+    "eleventy-plugin-i18n": "^0.1.3",
+    "eleventy-sass": "^2.1.7",
+    "glightbox": "^3.2.0",
+    "htm": "^3.1.1",
+    "html-react-parser": "^3.0.12",
+    "markdown-it": "^13.0.1",
+    "markdown-it-anchor": "^8.6.6",
+    "markdown-it-attrs": "^4.1.6",
+    "markdown-it-table-of-contents": "^0.6.0",
+    "netlify-cms-app": "^2.15.72",
+    "netlify-cms-locales": "^1.39.0",
+    "netlify-cms-media-library-cloudinary": "^1.3.10",
+    "nunjucks": "^3.2.3",
+    "postcss": "^8.4.5",
+    "smooth-scroll": "^16.1.3",
+    "swiper": "^6.8.4"
+  }
+}

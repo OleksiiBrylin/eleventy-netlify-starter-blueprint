@@ -1,0 +1,6 @@
+{
+    "permalink": "/uk/{{ page.fileSlug if page.fileSlug != 'uk' }}/index.html",
+    "lang": "uk",
+    "dir": "ltr",
+    "locale": "uk"
+}

@@ -1,0 +1,6 @@
+{
+    "permalink": "/news/{{ page.fileSlug }}/index.html",
+    "lang": "en",
+    "dir": "ltr",
+    "locale": "en"
+}

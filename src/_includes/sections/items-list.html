@@ -1,0 +1,23 @@
+<section class="items-list">
+    <div class="container">
+        <div class="brad hr-top">{{ section.text | markdown | safe }}</div>
+        <div class="items-list__wrap">
+            
+            {% for item in section.items_list %}
+                <div class="items-list__item">
+                    <img class="items-list__background" src="{{ item.background }}" alt="" />
+
+                    <div class="items-list__item-card">
+                        <img class="svg-icon" src="{{ item.icon }}" alt="" />
+                        <div class="bard">
+                            {{ item.text | markdown | safe }}
+                        </div>
+
+                        <a href="{{ item.cta_link | locale_url }}" class="btn primary mt-auto btn-animate">{{ item.cta_label }}</a>
+                    </div>
+                </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</section>

@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'Manrope';
+  src: url('/static/fonts/Manrope-Regular.woff2') format('woff2'),
+      url('/static/fonts/Manrope-Regular.woff') format('woff'),
+      url('/static/fonts/Manrope-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/static/fonts/SpaceGrotesk-Medium.woff2') format('woff2'),
+      url('/static/fonts/SpaceGrotesk-Medium.woff') format('woff'),
+      url('/static/fonts/SpaceGrotesk-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+$font-stack: 'Manrope', sans-serif;
+$font-bold: 'Space Grotesk', sans-serif;
